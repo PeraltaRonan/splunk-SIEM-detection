@@ -1,0 +1,10 @@
+
+[
+  {"timestamp": "2026-09-15T08:14:22Z", "user": "admin_user", "src_ip": "198.51.100.42", "eventName": "ConsoleLogin", "userAgent": "Mozilla/5.0", "status": "Success"},
+  {"timestamp": "2026-09-15T08:15:05Z", "user": "admin_user", "src_ip": "203.0.113.19", "eventName": "ConsoleLogin", "userAgent": "python-requests/2.28.0", "status": "Success"},
+  {"timestamp": "2026-09-15T08:18:40Z", "user": "admin_user", "src_ip": "203.0.113.19", "eventName": "PutBucketPolicy", "requestParameters": "{\"effect\":\"Allow\",\"principal\":\"*\"}", "status": "Success"},
+  {"timestamp": "2026-09-15T08:20:12Z", "user": "admin_user", "src_ip": "203.0.113.19", "eventName": "StopLogging", "target": "CloudTrail-Main", "status": "Success"},
+  {"timestamp": "2026-09-15T08:22:00Z", "user": "service_account", "src_ip": "203.0.113.19", "eventName": "GetObject", "bucket": "lms-student-records-db", "bytes_sent": 524288000, "status": "Success"},
+  {"timestamp": "2026-09-15T08:23:15Z", "user": "service_account", "src_ip": "203.0.113.19", "eventName": "GetObject", "bucket": "lms-student-records-db", "bytes_sent": 1048576000, "status": "Success"},
+  {"timestamp": "2026-09-15T08:24:45Z", "user": "service_account", "src_ip": "203.0.113.19", "eventName": "GetObject", "bucket": "lms-student-records-db", "bytes_sent": 838860800, "status": "Success"}
+]
