@@ -1,0 +1,5 @@
+index="cloud_logs" eventName="GetObject" 
+| stats count, sum(bytes_sent) as total_bytes_sent, values(bucket) as targeted_buckets by user, src_ip 
+| eval total_MB = round(total_bytes_sent / 1024 / 1024, 2) 
+| table user, src_ip, targeted_buckets, count, total_MB 
+| where total_MB > 100

@@ -1,0 +1,3 @@
+index="cloud_logs" eventName="ConsoleLogin" 
+| stats dc(src_ip) as unique_ips, values(src_ip) as ip_addresses by user 
+| where unique_ips > 1
