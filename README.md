@@ -21,6 +21,22 @@ A cloud threat hunting and detection engineering lab built in local Splunk Enter
 - Verified log ingestion by executing search queries in Splunk.
 
 
+
+## Repository Structure
+├── datasets/
+│   └── shinyhunters_cloud_telemetry.json
+├── queries/
+│   ├── query1_duel_ip_login.spl
+│   ├── query2_admin_tampering.spl
+│   └── query3_data_exfiltration.spl
+├── screenshots/
+│   ├── cloud_logs_verification.JPG
+│   ├── admin_user_query_1.JPG
+│   ├── admin_persistence&tampering_detection_query_2.JPG
+│   └── data_exfiltration_query_3.JPG
+└── README.md
+
+
 This SPL code is to confirm results of json file:
 
 index="cloud_logs" | table _time, user, src_ip, eventName, status
