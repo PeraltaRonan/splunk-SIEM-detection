@@ -114,3 +114,19 @@ This detection suite maps directly to key adversary tactics, techniques, and pro
 | **Cloud Audit Log Disruption** | Defense Evasion | `T1562.008` - Impair Defenses: Disable Cloud Logs | `query2_admin_tampering.spl` (`StopLogging`) | **Critical** |
 | **Public Storage Bucket Exposure** | Persistence / Privilege Abuse | `T1098` - Account Manipulation | `query2_admin_tampering.spl` (`PutBucketPolicy`) | **High** |
 | **Mass S3 Data Exfiltration** | Exfiltration | `T1537` - Transfer Data to Cloud Account | `query3_data_exfiltration.spl` (`GetObject` >100MB) | **Critical** |
+
+
+
+## Threat Detection & Incident Response Workflow
+
+```mermaid
+flowchart TD
+    %% Styling
+    classDef intel fill:#1f2937,stroke:#3b82f6,stroke-width:2px,color:#fff
+    classDef telemetry fill:#111827,stroke:#6b7280,stroke-width:1px,color:#fff
+    classDef siem fill:#1e3a8a,stroke:#60a5fa,stroke-width:2px,color:#fff
+    classDef detection fill:#701a75,stroke:#f0abfc,stroke-width:2px,color:#fff
+    classDef playbook fill:#065f46,stroke:#34d399,stroke-width:2px,color:#fff
+
+    %% Stage 1: Threat Intel & Telemetry
+    A[FBI IC3 Threat Intelligence
