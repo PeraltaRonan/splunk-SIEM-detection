@@ -129,4 +129,4 @@ flowchart TD
     classDef playbook fill:#065f46,stroke:#34d399,stroke-width:2px,color:#fff
 
     %% Stage 1: Threat Intel & Telemetry
-    A[FBI IC3 Threat Intelligence
+    AFBI IC3 Threat Intelligence
