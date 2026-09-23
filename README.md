@@ -34,7 +34,7 @@ This SPL code is to confirm results of json file:
 
 index="cloud_logs" | table _time, user, src_ip, eventName, status
 
-![Json File](screenshots/shinyhunters_cloud_telemetry.json)
+![Json File](screenshots/shinyhunters_cloud_telemetry.JPG)
 
 ![Cloud Logs](screenshots/cloud_logs_jsonfile.JPG)
 
