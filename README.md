@@ -2,7 +2,7 @@
 ## Project Overview
 Based on a cyberattack under a Cyber criminal group called "ShinyHunters" caused distruption on scale data breaches and extortion, which targeted major companies across the tech, finance, and retail business which was often stealing millions of data from customer record.
 
-Therefore having to engineer a cloud detection lab by ingesting a cloud telemetry into Spunk Enterprise and authored SPl detection rules mapped to the MITRE ATT&CK framework, specifically targetting session hijacking, admin log tampering, and mass S3 data exfiltration. To bridge the gap between detection and operations, I have built a unified SOC Triage Dashboard and authored an incident response playbook listing containment and credential workflows.
+Therefore having to engineer a cloud detection lab by ingesting a cloud telemetry into Spunk Enterprise and authored SPL detection rules mapped to the MITRE ATT&CK framework, specifically targetting session hijacking, admin log tampering, and mass S3 data exfiltration. To bridge the gap between detection and operations, I have built a unified SOC Triage Dashboard and authored an incident response playbook listing containment and credential workflows.
 
 Cloud Detection Lab based off this URL:   https://www.ic3.gov/PSA/2026/PSA260515
 
@@ -33,6 +33,8 @@ Cloud Detection Lab based off this URL:   https://www.ic3.gov/PSA/2026/PSA260515
 This SPL code is to confirm results of json file:
 
 index="cloud_logs" | table _time, user, src_ip, eventName, status
+
+![Json File](screenshots/shinyhunters_cloud_telemetry.json)
 
 ![Cloud Logs](screenshots/cloud_logs_jsonfile.JPG)
 
