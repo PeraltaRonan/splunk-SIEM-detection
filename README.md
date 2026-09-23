@@ -26,7 +26,7 @@ Cloud Detection Lab based off this URL:   https://www.ic3.gov/PSA/2026/PSA260515
 
 ## Repository Structure
 
-![Cloud Logs](screenshots/cloud_logs_jsonfile.JPG)
+![Cloud Logs](screenshots/repo_structure.JPG)
 
 
 ## Printing of Telemetry
@@ -48,6 +48,10 @@ index="cloud_logs" eventName="ConsoleLogin"
 
 With this result confirms the DUal IP anomaly which was successfully detected.
 
+
+![Query 1 - Dual IP Address](screenshots/query1_dual_ip_address.JPG)
+
+
 ## Query 2 (Admin Persitence & Log Tampering Detection)
 
 Typing SPL Code:
@@ -56,6 +60,9 @@ index="cloud_logs" eventName="PutBucketPolicy" OR eventName="StopLogging"
 | table _time, user, src_ip, eventName, requestParameters, target, status
 
 This detects two critical post-compromise actions used by attackers in cloud intrusions.
+
+![Query 2 - Tampering](screenshots/query2_tampering.JPG)
+
 
 ## Query 3 (Data Exfiltration)
 
@@ -70,12 +77,8 @@ index="cloud_logs" eventName="GetObject"
 In the ShinyHunters playbook, once persistence is established and logs are muted, the final goal is pulling sensitive records (e.g., database exports or LMS records).
 
 
-## Screenshots
-
-![Cloud Logs](screenshots/cloud_logs_jsonfile.JPG)
-![Query 1 - Dual IP Address](screenshots/query1_dual_ip_address.JPG)
-![Query 2 - Tampering](screenshots/query2_tampering.JPG)
 ![Query 3 - Data Exfiltration](screenshots/query3_data_exfiltration.JPG)
+
 
 ## Incident Response & SOC Triage Playbook
 
