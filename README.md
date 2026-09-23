@@ -2,7 +2,7 @@
 ## Project Overview
 Based on a cyberattack under a Cyber criminal group called "ShinyHunters" caused distruption on scale data breaches and extortion, which targeted major companies across the tech, finance, and retail business which was often stealing millions of data from customer record.
 
-Therefore having to engineer a cloud detection lab by ingesting a cloud telemetry into Spunk Enterprise and authored SPL detection rules mapped to the MITRE ATT&CK framework, specifically targetting session hijacking, admin log tampering, and mass S3 data exfiltration. To bridge the gap between detection and operations, I have built a unified SOC Triage Dashboard and authored an incident response playbook listing containment and credential workflows.
+Therefore having to `engineer a cloud detection lab by ingesting a cloud telemetry into Spunk Enterprise` and `authored SPL detection rules` mapped to the MITRE ATT&CK framework, specifically targeting session hijacking, admin log tampering, and mass S3 data exfiltration. To bridge the gap between detection and operations, I have `built a unified SOC Triage Dashboard` and authored an incident response playbook listing containment and credential workflows.
 
 Cloud Detection Lab based off this URL:   https://www.ic3.gov/PSA/2026/PSA260515
 
@@ -90,7 +90,7 @@ When the Splunk SIEM triggers an alert from our detection rules, the on-call SOC
 * **Trigger:** Alert fires for `Session Hijacking` (Multi-IP login) or `Administrative Tampering` (`StopLogging` / `PutBucketPolicy`).
 * **Analyst Actions:**
   1. Inspect the source IP addresses (`src_ip`) and user agent strings (`userAgent`) associated with the `admin_user` session.
-  2. Correlate timestamps against known corporate VPN ranges or geo-IP databases to verify if the dual-IP activity represents legitimate travel or a stolen session cookie (MITRE ATT&CK **T1078**).
+  2. Correlate timestamps against known corporate VPN ranges or geo-IP databases to verify if the dual-IP activity represents legitimate travel or a stolen session cookie (MITRE ATT&CK).
   3. Check for accompanying defensive evasion events (`StopLogging`) to confirm if malicious actors are trying to blind telemetry.
 
 ### Phase 2: Containment & Eradication
