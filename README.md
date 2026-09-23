@@ -1,8 +1,10 @@
 # Splunk Threat Detection Lab
-Project is base off this URL:   https://www.ic3.gov/PSA/2026/PSA260515
-
 ## Project Overview
-A cloud threat hunting and detection engineering lab built in local Splunk Enterprise, modeling threat vectors from FBI IC3 Alert I-051526-PSA (ShinyHunters Cloud & LMS platform intrusions).
+Based on a cyberattack under a Cyber criminal group called "ShinyHunters" caused distruption on scale data breaches and extortion, which targeted major companies across the tech, finance, and retail business which was often stealing millions of data from customer record.
+
+Therefore having to engineer a cloud detection lab by ingesting a cloud telemetry into Spunk Enterprise and authored SPl detection rules mapped to the MITRE ATT&CK framework, specifically targetting session hijacking, admin log tampering, and mass S3 data exfiltration. To bridge the gap between detection and operations, I have built a unified SOC Triage Dashboard and authored an incident response playbook listing containment and credential workflows.
+
+Cloud Detection Lab based off this URL:   https://www.ic3.gov/PSA/2026/PSA260515
 
 
 ## Architecture & Data Sources
@@ -23,23 +25,18 @@ A cloud threat hunting and detection engineering lab built in local Splunk Enter
 
 
 ## Repository Structure
-├── datasets/
-│   └── shinyhunters_cloud_telemetry.json
-├── queries/
-│   ├── query1_duel_ip_login.spl
-│   ├── query2_admin_tampering.spl
-│   └── query3_data_exfiltration.spl
-├── screenshots/
-│   ├── cloud_logs_verification.JPG
-│   ├── admin_user_query_1.JPG
-│   ├── admin_persistence&tampering_detection_query_2.JPG
-│   └── data_exfiltration_query_3.JPG
-└── README.md
+
+![Cloud Logs](screenshots/cloud_logs_jsonfile.JPG)
 
 
+## Printing of Telemetry
 This SPL code is to confirm results of json file:
 
 index="cloud_logs" | table _time, user, src_ip, eventName, status
+
+![Cloud Logs](screenshots/cloud_logs_jsonfile.JPG)
+
+
 
 ## Query 1 ( session, hijacking , Dual IP login)
 
@@ -72,6 +69,13 @@ index="cloud_logs" eventName="GetObject"
 
 In the ShinyHunters playbook, once persistence is established and logs are muted, the final goal is pulling sensitive records (e.g., database exports or LMS records).
 
+
+## Screenshots
+
+![Cloud Logs](screenshots/cloud_logs_jsonfile.JPG)
+![Query 1 - Dual IP Address](screenshots/query1_dual_ip_address.JPG)
+![Query 2 - Tampering](screenshots/query2_tampering.JPG)
+![Query 3 - Data Exfiltration](screenshots/query3_data_exfiltration.JPG)
 
 ## Incident Response & SOC Triage Playbook
 
@@ -114,19 +118,3 @@ This detection suite maps directly to key adversary tactics, techniques, and pro
 | **Cloud Audit Log Disruption** | Defense Evasion | `T1562.008` - Impair Defenses: Disable Cloud Logs | `query2_admin_tampering.spl` (`StopLogging`) | **Critical** |
 | **Public Storage Bucket Exposure** | Persistence / Privilege Abuse | `T1098` - Account Manipulation | `query2_admin_tampering.spl` (`PutBucketPolicy`) | **High** |
 | **Mass S3 Data Exfiltration** | Exfiltration | `T1537` - Transfer Data to Cloud Account | `query3_data_exfiltration.spl` (`GetObject` >100MB) | **Critical** |
-
-
-
-## Threat Detection & Incident Response Workflow
-
-```mermaid
-flowchart TD
-    %% Styling
-    classDef intel fill:#1f2937,stroke:#3b82f6,stroke-width:2px,color:#fff
-    classDef telemetry fill:#111827,stroke:#6b7280,stroke-width:1px,color:#fff
-    classDef siem fill:#1e3a8a,stroke:#60a5fa,stroke-width:2px,color:#fff
-    classDef detection fill:#701a75,stroke:#f0abfc,stroke-width:2px,color:#fff
-    classDef playbook fill:#065f46,stroke:#34d399,stroke-width:2px,color:#fff
-
-    %% Stage 1: Threat Intel & Telemetry
-    AFBI IC3 Threat Intelligence
